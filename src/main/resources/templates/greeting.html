@@ -2,24 +2,26 @@
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
 	
-    <title>Getting Started: Serving Web Content</title>
+    <title>Finding first repeated character</title>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-
     <link href="../static/css/bootstrap.css" rel="stylesheet" th:href="@{/css/bootstrap.css}"/>
 
-
 </head>
-<body>
-    <p th:text="'Hello, ' + ${name} + '!'" />
+<body class="p-5">
+<div class="container">
+	<form class="text-center border border-light p-5" action="/form" method="post">
+   		 <input class="form-control mb-3"  required="true"
+           type="text"
+           th:name="content"
+           th:id="content"
+           th:value="${form} ? ${form.content} : ''"/>		
 
-
-<form class="text-center border border-light p-5" action="/form" method="post">
-	<input type='text' name='firstName' id='firstName' class='form-control' />
-	<input type='submit' name='submit' id ='submit' class='form-control'  value='Submit'/>
-</form>
-
-
-
+		<input type='submit' name='submit' id ='submit' class='btn btn-primary btn-block' value='Find first repeated letter'/>
+		<div th:if="${form}">
+	       <p class="h3 mt-3" th:text=" ${form.repeatedChar}"></p>
+	    </div>	
+	</form>
+</div>
 
 
 <!-- Bootstrap core JavaScript
