@@ -12,7 +12,8 @@ public class Form {
 
     public void setContent(String content) {
         this.content = content;  
-        String str = content.toUpperCase(); 
+        String strNoSpace = content.replaceAll("\\s","");
+        String str = strNoSpace.toUpperCase(); 
         char[] arr = str.toCharArray(); 
         this.repeatedChar = repeatingFirstChar(arr);   
     }
